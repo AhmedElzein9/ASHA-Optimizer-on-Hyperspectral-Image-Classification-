@@ -4,7 +4,7 @@ class=max(max(gt));
 [r,c,~]=size(img);
 B=ones(r,c);
 options = struct('Optimizer','asha','UseParallel',true,'ShowPlots',false,'MaxObjectiveEvaluations',maxobj,'Kfold',2);
-for i=1:1
+for i=1:30
     tic;
 [Result.Mdl{i},Result.OptimizationRESULTS_pavia{i}] = fitcauto(train_input,train_target,'HyperparameterOptimizationOptions',options,'OptimizeHyperparameters','all','Learners','svm');
 Result.tra_out{i}=predict(Result.Mdl{i},train_input);
