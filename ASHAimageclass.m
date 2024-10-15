@@ -3,7 +3,7 @@ function [Result]=ASHAimageclass(train_input,train_target,test_input,test_target
 class=max(max(gt));
 [r,c,~]=size(img);
 B=ones(r,c);
-options = struct('Optimizer','bayesopt','UseParallel',true,'ShowPlots',false,'MaxObjectiveEvaluations',maxobj,'Kfold',2);
+options = struct('Optimizer','asha','UseParallel',true,'ShowPlots',false,'MaxObjectiveEvaluations',maxobj,'Kfold',2);
 for i=1:1
     tic;
 [Result.Mdl{i},Result.OptimizationRESULTS_pavia{i}] = fitcauto(train_input,train_target,'HyperparameterOptimizationOptions',options,'OptimizeHyperparameters','all','Learners','svm');
